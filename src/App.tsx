@@ -89,7 +89,7 @@ function SimulatorPage() {
     <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] px-2">
       <div className="max-w-xl w-full mx-auto bg-white rounded-2xl shadow-xl p-10">
         <div className="flex justify-between items-center mb-10">
-          <h1 className="text-3xl font-bold text-[#22223B]">대출 갈아타기 시뮬레이터</h1>
+          <h1 className="text-1xl font-bold text-[#22223B]">대출 갈아타기 시뮬레이터</h1>
           <button onClick={handleLogout} className="text-base text-gray-400 hover:text-[#2563EB]">로그아웃</button>
         </div>
         {/* 대출 선택 */}
