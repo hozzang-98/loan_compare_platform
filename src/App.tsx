@@ -137,15 +137,15 @@ function SimulatorPage() {
         </div>
         {/* 선택한 상품 조건 */}
         {selectedProduct && (
-          <div className="mb-10 p-6 bg-[#F1F6FE] rounded-xl">
-            <h2 className="font-bold text-[#2563EB] mb-2 text-lg">선택한 상품 조건</h2>
-            <ul className="text-base text-[#22223B] space-y-1">
-              <li>상품명: <span className="font-bold">{selectedProduct.name}</span></li>
-              <li>금리: <span className="font-bold">{selectedProduct.interest_rate}%</span></li>
-              <li>상환 방식: <span className="font-bold">{selectedProduct.repayment_type}</span></li>
-              <li>유예 기간: <span className="font-bold">{selectedProduct.defer_months}개월</span></li>
-              <li>금융사: <span className="font-bold">{selectedProduct.lender}</span></li>
-            </ul>
+          <div className="mb-10 p-6 bg-[#F1F6FE] rounded-xl text-left">
+            <div className="text-[#2563EB] font-bold text-lg mb-3">선택한 상품 조건</div>
+            <div className="mb-1">상품명: <span className="font-bold">{selectedProduct.name}</span></div>
+            <div className="mb-1">금리: <span className="font-bold">{selectedProduct.interest_rate}%</span></div>
+            <div className="mb-1 flex items-center">상환 방식:
+              <span className="ml-2 font-bold">{selectedProduct.repayment_type}</span>
+            </div>
+            <div className="mb-1">유예 기간: <span className="font-bold">{selectedProduct.defer_months}개월</span></div>
+            <div className="mb-1">금융사: <span className="font-bold">{selectedProduct.lender}</span></div>
           </div>
         )}
         {/* 결과 영역 */}
