@@ -86,24 +86,24 @@ function SimulatorPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-2">
-      <div className="max-w-xl w-full mx-auto bg-white rounded-2xl shadow-lg p-10">
+    <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] px-2">
+      <div className="max-w-xl w-full mx-auto bg-white rounded-2xl shadow-xl p-10">
         <div className="flex justify-between items-center mb-10">
-          <h1 className="text-3xl font-bold text-blue-700">대출 갈아타기 시뮬레이터</h1>
-          <button onClick={handleLogout} className="text-base text-gray-400 hover:text-blue-600">로그아웃</button>
+          <h1 className="text-3xl font-bold text-[#22223B]">대출 갈아타기 시뮬레이터</h1>
+          <button onClick={handleLogout} className="text-base text-gray-400 hover:text-[#2563EB]">로그아웃</button>
         </div>
         {/* 대출 선택 */}
         <div className="mb-8">
-          <label className="block text-gray-700 font-semibold mb-3 text-lg">내 대출</label>
+          <label className="block text-[#22223B] font-semibold mb-3 text-lg">내 대출</label>
           {loans.length === 0 && <div className="text-gray-400">대출 데이터 없음</div>}
           <ul className="space-y-3">
             {loans.map((loan) => (
               <li key={loan.id}>
                 <button
-                  className={`w-full text-left px-5 py-4 rounded-xl border transition font-medium text-lg ${
+                  className={`w-full text-left px-5 py-4 rounded-xl border-none transition font-medium text-lg bg-[#F1F6FE] hover:bg-[#E3EDFC] ${
                     selectedLoan?.id === loan.id
-                      ? 'bg-blue-100 border-blue-400 text-blue-700'
-                      : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-blue-50'
+                      ? 'ring-2 ring-[#2563EB] text-[#2563EB] bg-white'
+                      : 'text-[#22223B]'
                   }`}
                   onClick={() => setSelectedLoan(loan)}
                 >
@@ -115,15 +115,15 @@ function SimulatorPage() {
         </div>
         {/* 상품 선택 */}
         <div className="mb-10">
-          <label className="block text-gray-700 font-semibold mb-3 text-lg">갈아탈 상품</label>
+          <label className="block text-[#22223B] font-semibold mb-3 text-lg">갈아탈 상품</label>
           <ul className="space-y-3">
             {products.map((product) => (
               <li key={product.id}>
                 <button
-                  className={`w-full text-left px-5 py-4 rounded-xl border transition font-medium text-lg ${
+                  className={`w-full text-left px-5 py-4 rounded-xl border-none transition font-medium text-lg bg-[#F1F6FE] hover:bg-[#E3EDFC] ${
                     selectedProduct?.id === product.id
-                      ? 'bg-green-100 border-green-400 text-green-700'
-                      : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-green-50'
+                      ? 'ring-2 ring-[#2563EB] text-[#2563EB] bg-white'
+                      : 'text-[#22223B]'
                   }`}
                   onClick={() => setSelectedProduct(product)}
                 >
@@ -135,9 +135,9 @@ function SimulatorPage() {
         </div>
         {/* 선택한 상품 조건 */}
         {selectedProduct && (
-          <div className="mb-10 p-6 bg-blue-50 rounded-xl">
-            <h2 className="font-semibold text-blue-700 mb-3 text-lg">선택한 상품 조건</h2>
-            <ul className="text-base text-gray-700 space-y-1">
+          <div className="mb-10 p-6 bg-[#F1F6FE] rounded-xl">
+            <h2 className="font-bold text-[#2563EB] mb-2 text-lg">선택한 상품 조건</h2>
+            <ul className="text-base text-[#22223B] space-y-1">
               <li>상품명: <span className="font-bold">{selectedProduct.name}</span></li>
               <li>금리: <span className="font-bold">{selectedProduct.interest_rate}%</span></li>
               <li>상환 방식: <span className="font-bold">{selectedProduct.repayment_type}</span></li>
@@ -151,19 +151,19 @@ function SimulatorPage() {
           <div className="mt-10">
             <div className="border-t pt-8 mt-8">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-lg">📊 월 납입액:</span>
+                <span className="text-lg text-[#2563EB]">📊 월 납입액:</span>
                 <span className="text-xl font-bold text-green-600">{result.diffMonthly > 0 ? '-' : '+'}{Math.abs(Math.round(result.diffMonthly)).toLocaleString()}원</span>
               </div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-lg">📉 총 이자:</span>
+                <span className="text-lg text-[#2563EB]">📉 총 이자:</span>
                 <span className="text-xl font-bold text-green-600">{result.diffInterest > 0 ? '-' : '+'}{Math.abs(Math.round(result.diffInterest)).toLocaleString()}원</span>
               </div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-lg">⏱️ 전체 기간:</span>
+                <span className="text-lg text-[#2563EB]">⏱️ 전체 기간:</span>
                 <span className="text-xl font-bold">{result.months}개월</span>
               </div>
             </div>
-            <div className="mt-8 text-center text-lg font-semibold text-blue-700">
+            <div className="mt-8 text-center text-lg font-semibold text-[#2563EB]">
               {result.diffInterest > 0
                 ? `약 ${Math.floor(Math.abs(result.diffInterest) / 10000).toLocaleString()}만 원 이자 절감 예상!`
                 : result.diffInterest < 0
@@ -172,28 +172,28 @@ function SimulatorPage() {
             </div>
             {/* 막대 그래프 */}
             <div className="mt-8">
-              <div className="w-full h-32 bg-gray-100 rounded flex items-end justify-around">
+              <div className="w-full h-32 bg-[#F1F6FE] rounded flex items-end justify-around">
                 <div className="flex flex-col items-center">
                   <div
-                    className="w-8 bg-blue-400 rounded-t"
+                    className="w-8 bg-[#2563EB] rounded-t"
                     style={{ height: oldBar + 'px', transition: 'height 0.5s' }}
                   ></div>
-                  <span className="text-sm mt-1">현재</span>
+                  <span className="text-sm mt-1 text-[#2563EB]">현재</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <div
                     className="w-8 bg-green-400 rounded-t"
                     style={{ height: newBar + 'px', transition: 'height 0.5s' }}
                   ></div>
-                  <span className="text-sm mt-1">갈아타기</span>
+                  <span className="text-sm mt-1 text-green-700">갈아타기</span>
                 </div>
               </div>
             </div>
             {/* 버튼 그룹 */}
             <div className="mt-8 flex flex-wrap gap-3 justify-between">
-              <button className="bg-yellow-400 text-white px-6 py-3 rounded-xl font-bold hover:bg-yellow-500 text-lg">카카오톡 공유</button>
-              <button className="bg-gray-300 text-gray-700 px-6 py-3 rounded-xl font-bold hover:bg-gray-400 text-lg">PDF 저장</button>
-              <button className="bg-blue-100 text-blue-700 px-6 py-3 rounded-xl font-bold hover:bg-blue-200 text-lg">다른 상품도 비교해보기</button>
+              <button className="bg-[#2563EB] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1D4ED8] text-lg transition">카카오톡 공유</button>
+              <button className="bg-gray-200 text-[#2563EB] px-6 py-3 rounded-xl font-bold hover:bg-gray-300 text-lg transition">PDF 저장</button>
+              <button className="bg-[#F1F6FE] text-[#2563EB] px-6 py-3 rounded-xl font-bold hover:bg-[#E3EDFC] text-lg transition">다른 상품도 비교해보기</button>
             </div>
           </div>
         )}
